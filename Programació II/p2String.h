@@ -12,13 +12,17 @@ class P2String
 	uint capacity;
 
 public:
+	P2String();
 	P2String(const P2String &string);
-	P2String(char* string);
-	P2String(const uint new_capacity);
+	P2String(const char* string);
+	P2String(uint new_capacity);
 	~P2String();
-	char* GetString();
-	uint GetCapacity();
+
+	const char* GetString()const;
+	const uint GetCapacity()const;
+	bool operator==(const char* string)const;
+	bool operator!=(const char* string)const;
 	bool operator==(const P2String &string)const;
-	bool operator!=(P2String &string)const;
+	bool operator!=(const P2String &string)const;
 };
 #endif
