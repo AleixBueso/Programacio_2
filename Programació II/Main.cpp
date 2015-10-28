@@ -18,7 +18,8 @@ int main()
 	cout << endl;
 	cout << endl;
 
-
+	P2String a("funciona");
+	cout << a.GetString() << endl;
 	
 	cout << endl;
 	cout << endl;

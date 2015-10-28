@@ -1,24 +1,15 @@
-﻿Compilación iniciada a las 28/10/2015 15:58:34.
+﻿Compilación iniciada a las 28/10/2015 16:57:53.
      1>Proyecto "D:\Users\aleixbf\Desktop\Programació II\Programació II\Programació II.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp P2String.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt P2String.cpp
          P2String.cpp
-     1>d:\users\aleixbf\desktop\programació ii\programació ii\p2string.cpp(12): error C2143: error de sintaxis : falta ';' delante de '='
-     1>d:\users\aleixbf\desktop\programació ii\programació ii\p2string.cpp(13): error C2819: el tipo 'P2String' no tiene un miembro sobrecargado 'operator ->'
-                 d:\users\aleixbf\desktop\programació ii\programació ii\p2string.h(10) : vea la declaración de 'P2String'
-                 ¿deseaba utilizar '.' en su lugar?
-     1>d:\users\aleixbf\desktop\programació ii\programació ii\p2string.cpp(13): error C2232: '->P2String::str' : el operando izquierdo tiene el tipo 'class'; utilice '.'
-     1>d:\users\aleixbf\desktop\programació ii\programació ii\p2string.cpp(13): error C2059: error de sintaxis : ';'
-     1>d:\users\aleixbf\desktop\programació ii\programació ii\p2string.cpp(56): error C2084: la función 'bool P2String::operator !=(const char *) const' ya tiene un cuerpo
-                 d:\users\aleixbf\desktop\programació ii\programació ii\p2string.h(24) : vea la definición anterior de '!='
-     1>d:\users\aleixbf\desktop\programació ii\programació ii\p2string.cpp(72): error C2084: la función 'bool P2String::operator !=(const P2String &) const' ya tiene un cuerpo
-                 d:\users\aleixbf\desktop\programació ii\programació ii\p2string.h(26) : vea la definición anterior de '!='
-         Generando código...
-         Compilando...
-         Main.cpp
-         Generando código...
-     1>Compilación del proyecto terminada "D:\Users\aleixbf\Desktop\Programació II\Programació II\Programació II.vcxproj" (Build destinos) -- ERROR.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Users\aleixbf\Desktop\Programació II\Debug\Programació II.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Users\aleixbf\Desktop\Programació II\Debug\Programació II.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Users\aleixbf\Desktop\Programació II\Debug\Programació II.lib" /MACHINE:X86 Debug\Circle.obj
+         Debug\Main.obj
+         Debug\P2String.obj
+         Programació II.vcxproj -> D:\Users\aleixbf\Desktop\Programació II\Debug\Programació II.exe
+     1>Compilación del proyecto terminada "D:\Users\aleixbf\Desktop\Programació II\Programació II\Programació II.vcxproj" (Build destinos).
 
-ERROR al compilar.
+Compilación correcta.
 
-Tiempo transcurrido 00:00:01.24
+Tiempo transcurrido 00:00:00.85
