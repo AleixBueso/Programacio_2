@@ -19,6 +19,13 @@ public:
 	//Clear()
 	//ctr(capacity)
 	//empty() (bool true si esta buida)
+	
+	//operador[]
+	//operador=
+	//pop_back
+	//shrink_to_fit (si sobra mem, es talla)
+	//flip
+	//insert
 
 	DynArray() : capacity(CHUNK), num_elements(0)
 	{
@@ -38,6 +45,14 @@ public:
 		data = new type[sizeof(Array)];
 		capacity = MAX(CHUNK, sizeof(Array) / sizeof(type));
 		memcpy(data, Array, sizeof(Array) / sizeof(type));
+	}
+	
+	DynArray(uint new_capacity)
+	{
+		data = new type[new_capacity];
+		memcpy(data, tmp, num_elements * sizeof(type));
+		cacpacity = new_capacity;
+		delete[] tmp;
 	}
 
 	~DynArray()
