@@ -45,23 +45,29 @@ public:
 			delete[] data;
 	}
 
-	uint GetCapacity()
+	uint GetCapacity() const
 	{
 		return capacity;
 	}
 
-	uint GetSize()
+	uint GetSize() const
 	{
 		return num_elements;
 	}
 
-	bool IsEmpty()
+	bool IsEmpty() const
 	{
 		if (data == NULL)
 			return true;
 		else
 			return false;
 	}
+	
+	type* c_str() const
+	{
+		return data;
+	}
+
 
 	void PushBack(const type &item)
 	{
@@ -113,9 +119,7 @@ public:
 
 	void Clear()
 	{
-		data = NULL;
 		num_elements = 0;
-		capacity = 0;
 	}
 
 };
