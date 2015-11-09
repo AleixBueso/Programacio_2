@@ -1,5 +1,6 @@
 #ifndef __POINT_H__
 #define __POINT_H__
+
 template<class type>
 
 class Point

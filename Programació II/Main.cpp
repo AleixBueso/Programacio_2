@@ -2,6 +2,7 @@
 #include "Point.h"
 #include "Circle.h"
 #include "p2String.h"
+#include "DynamicArray.h"
 using namespace std;
 
 template<typename type>
@@ -18,9 +19,8 @@ int main()
 	cout << endl;
 	cout << endl;
 
-	P2String a("funciona");
-	cout << a.GetString() << endl;
-	
+	DynArray<int> A();
+
 	cout << endl;
 	cout << endl;
 	cout << "===============================================================================" << endl;
