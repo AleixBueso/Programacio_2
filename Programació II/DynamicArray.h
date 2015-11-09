@@ -111,6 +111,13 @@ public:
 		}
 	}
 
+	void Clear()
+	{
+		data = NULL;
+		num_elements = 0;
+		capacity = 0;
+	}
+
 };
 
 #endif
