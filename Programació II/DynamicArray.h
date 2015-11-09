@@ -67,6 +67,11 @@ public:
 	{
 		return data;
 	}
+	
+	type At(const uint &position) const
+	{
+		return data[position];
+	}
 
 
 	void PushBack(const type &item)
@@ -83,7 +88,7 @@ public:
 		}
 	}
 
-	bool At(uint position, const type &item)
+	bool Insert(uint position, const type &item)
 	{
 		if (position <= capacity)
 		{
