@@ -32,11 +32,12 @@ public:
 		memccpy(data, Array.data, Array.num_elements * sizeof(type));
 	}
 
-	DynArray(type* Array) : num_elements(sizeof(Array))
+	DynArray(type* Array const) : num_elements(sizeof(Array))
 	{
+		
 		data = new type[sizeof(Array)];
-		capacity = MAX(CHUNK, sizeof(Array));
-		memccpy(data, Array, sizeof(Array) * sizeof(type));
+		capacity = MAX(CHUNK, sizeof(Array) / sizeof(type));
+		memcpy(data, Array, sizeof(Array) / sizeof(type));
 	}
 
 	~DynArray()
@@ -68,22 +69,26 @@ public:
 		return data;
 	}
 	
-	type At(const uint &position) const
+	const &type At(uint position) const
 	{
-		return data[position];
+		if(positon <= num_elements)
+			return data[position];
+			else
+		return 0;
 	}
 
 
 	void PushBack(const type &item)
 	{
-		if (num_elements++ < capacity)
-			data[num_elements++] = item;
+		if (num_elements + 1 < capacity)
+			data[num_elements ++] = item;
 		else
 		{
-			type* tmp = new type[capacity];
-			memcpy(tmp, data, capacity);
+			type* tmp = new type[capacity + CHUNK];
+			memcpy(tmp, data, capacity + CHUNK);
 			data = new type[capacity + 1];
-			memcpy(data, tmp, num_elements + 1);
+			memcpy(data, tmp, num_elements ++);
+			data[num_elements] = item;
 			delete[] tmp;
 		}
 	}
