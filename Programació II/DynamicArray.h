@@ -3,15 +3,17 @@
 
 #include "Globals.h"
 
-template <class type>
+typedef unsigned int uint;
+#define CHUNK 16
+
+template <class TYPE>
 class DynArray
 {
-	type* data;
-	uint capacity;
-	uint num_elements;
+	TYPE* data = NULL;
+	uint capacity = 0;
+	uint num_elements = 0;
 
 public:
-
 	//Homework:
 	//at()
 	//capacity()
@@ -19,7 +21,6 @@ public:
 	//Clear()
 	//ctr(capacity)
 	//empty() (bool true si esta buida)
-	
 	//operador[]
 	//operador=
 	//pop_back
@@ -27,30 +28,21 @@ public:
 	//flip
 	//insert
 
-	DynArray() : capacity(CHUNK), num_elements(0)
-	{
-		data = new type[CHUNK];
+	DynArray() : capacity(CHUNK) {
+		data = new TYPE[CHUNK];
 	}
 
 	DynArray(const DynArray &Array) : num_elements(Array.num_elements)
 	{
-		data = new type[Array.capacity];
+		data = new TYPE[Array.capacity];
 		capacity = MAX(Array.capacity, CHUNK);
-		memccpy(data, Array.data, Array.num_elements * sizeof(type));
-	}
-
-	DynArray(type* Array const) : num_elements(sizeof(Array))
-	{
-		
-		data = new type[sizeof(Array)];
-		capacity = MAX(CHUNK, sizeof(Array) / sizeof(type));
-		memcpy(data, Array, sizeof(Array) / sizeof(type));
+		memccpy(data, Array.data, Array.num_elements * sizeof(TYPE));
 	}
 	
 	DynArray(uint new_capacity)
 	{
-		data = new type[new_capacity];
-		memcpy(data, tmp, num_elements * sizeof(type));
+		data = new TYPE[new_capacity];
+		memcpy(data, tmp, num_elements * sizeof(TYPE));
 		cacpacity = new_capacity;
 		delete[] tmp;
 	}
@@ -79,12 +71,12 @@ public:
 			return false;
 	}
 	
-	type* c_str() const
+	TYPE* c_str() const
 	{
 		return data;
 	}
 	
-	const &type At(uint position) const
+	const TYPE& At(unsigned int position) const
 	{
 		if(positon <= num_elements)
 			return data[position];
@@ -92,34 +84,35 @@ public:
 		return 0;
 	}
 
-
-	void PushBack(const type &item)
+	void PushBack(const TYPE &item)
 	{
-		if (num_elements + 1 < capacity)
-			data[num_elements ++] = item;
-		else
+		if (num_elements + 1 >= capacity)
 		{
-			type* tmp = new type[capacity + CHUNK];
-			memcpy(tmp, data, capacity + CHUNK);
-			data = new type[capacity + 1];
-			memcpy(data, tmp, num_elements ++);
-			data[num_elements] = item;
+			TYPE* tmp = data;
+			memcpy(tmp, data, capacity);
+			data = new TYPE[capacity + CHUNK];
+			memcpy(data, tmp, num_elements * sizeof(TYPE));
 			delete[] tmp;
 		}
+			data[num_elements++] = item;
 	}
 
-	bool Insert(uint position, const type &item)
+	bool Insert(uint position, const TYPE &item)
 	{
 		if (position <= capacity)
 		{
-			type* tmp = new type[num_elements + 1];
+			TYPE* tmp = data;
+			strcpy(tmp, data, capacity);
+			data = new TYPE[tmp->num_elements + 1];
+
 			for (uint i = 0; i <= position; i++)
-				tmp[i] = data[i];
-			tmp->PushBack(item);
+				data[i] = tmp[i];
+			
+			data.Pushback(item);
+
 			for (uint i = position + 1; i <= num_elements + 1; i++)
-				tmp[i] = data[i - 1];
-			data = new type[tmp->num_elements + 1];
-			memcpy(data, tmp, num_elements + 1);
+				data[i + 1] = tmp[i];
+			
 			delete[]tmp;
 			return true;
 		}
@@ -133,9 +126,9 @@ public:
 			return false;
 		else
 		{
-			type* tmp = new type[new_capacity];
+			TYPE* tmp = new TYPE[new_capacity];
 			memcpy(tmp, data, new_capacity);
-			data = new type[new_capacity];
+			data = new TYPE[new_capacity];
 			memcpy(data, tmp, num_elements + 1);
 			delete[] tmp;
 			return true;

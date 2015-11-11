@@ -19,7 +19,12 @@ int main()
 	cout << endl;
 	cout << endl;
 
-	DynArray<int> A();
+	DynArray<int> array1;
+	array1.PushBack(1);
+	array1.PushBack(2);
+	array1.PushBack(3);
+
+	cout << array1.c_str() << endl;
 
 	cout << endl;
 	cout << endl;
