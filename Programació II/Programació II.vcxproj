@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="DoubleList.h" />
     <ClInclude Include="DynamicArray.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="p2String.h" />

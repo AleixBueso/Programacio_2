@@ -1,14 +1,13 @@
-﻿Compilación iniciada a las 09/11/2015 15:39:23.
-     1>Proyecto "D:\Users\aleixbf\Desktop\Programacio_2-master\Programació II\Programació II.vcxproj" en el nodo 2 (Build destinos).
+﻿Compilación iniciada a las 16/11/2015 16:13:10.
+     1>Proyecto "D:\Users\aleixbf\Desktop\Programació II\Programació II\Programació II.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt DynamicArray.cpp Main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
          Main.cpp
-     1>d:\users\aleixbf\desktop\programacio_2-master\programació ii\dynamicarray.h(6): error C2143: error de sintaxis : falta ';' delante de ''template<''
-         DynamicArray.cpp
-     1>d:\users\aleixbf\desktop\programacio_2-master\programació ii\dynamicarray.h(6): error C2143: error de sintaxis : falta ';' delante de ''template<''
-         Generando código...
-     1>Compilación del proyecto terminada "D:\Users\aleixbf\Desktop\Programacio_2-master\Programació II\Programació II.vcxproj" (Build destinos) -- ERROR.
+     1>d:\users\aleixbf\desktop\programació ii\programació ii\doublelist.h(16): error C2523: 'DList_Node<TYPE>::~DList_node' : etiqueta de destructor sin correspondencia
+                 d:\users\aleixbf\desktop\programació ii\programació ii\doublelist.h(17) : vea la referencia a la creación de instancias de plantilla de clase 'DList_Node<TYPE>' que se está compilando
+     1>d:\users\aleixbf\desktop\programació ii\programació ii\doublelist.h(16): error C2590: 'DList_Node<TYPE>' : sólo un constructor puede tener una lista de inicializadores de base o miembro
+     1>Compilación del proyecto terminada "D:\Users\aleixbf\Desktop\Programació II\Programació II\Programació II.vcxproj" (Build destinos) -- ERROR.
 
 ERROR al compilar.
 
-Tiempo transcurrido 00:00:00.94
+Tiempo transcurrido 00:00:00.03

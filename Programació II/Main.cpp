@@ -2,6 +2,7 @@
 #include "Point.h"
 #include "Circle.h"
 #include "p2String.h"
+#include "DoubleList.h"
 #include "DynamicArray.h"
 using namespace std;
 
@@ -19,7 +20,8 @@ int main()
 	cout << endl;
 	cout << endl;
 
-	DynArray<int> A();
+	DList<int> list();
+
 
 	cout << endl;
 	cout << endl;
