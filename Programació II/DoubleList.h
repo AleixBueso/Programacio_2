@@ -4,66 +4,93 @@
 #include "Globals.h"
 
 template <class TYPE>
-class DList_Node
+struct DList_Node
 {
-	DList_Node<TYPE>* next;
-	DList_Node<TYPE>* prev;
-	TYPE* data;
+	DList_Node<TYPE>* next = NULL;
+	DList_Node<TYPE>* prev = NULL;
+	TYPE data;
 
-public:
-	DList_Node() : next(NULL), prev(NULL), data(NULL){}
-	DList_Node(const TYPE& data) : next(NULL), prev(NULL), data(data){}
-	~DList_node() :data(NULL){}
+	DList_Node(const TYPE& data) : data(data){}
+	~DList_Node(){}
 };
 
 template <class TYPE>
 class DList
 {
-	DList_Node<TYPE>* start;
-	DList_Node<TYPE>* end;
+	DList_Node<TYPE>* start = NULL;
+	DList_Node<TYPE>* end = NULL;
 
 public:
-	DList() : start(NULL), end(NULL){}
-	~DList(){ start = end = NULL; }
+	DList(){}
+	~DList(){ Clear(); }
 
-	const DList_Node<TYPE>& GetFirst(){ return start; }
-	const DList_Node<TYPE>& GetLast(){ return end; }
+	const DList_Node<TYPE>* GetFirst(){ return start; }
+
+	DList_Node<TYPE>* GetLast(){ return end; }
+
+/*const DList_Node<TYPE>* GetLast()
+	{
+		DList_Node<TYPE>* tmp = start;
+		while (tmp->next != NULL)
+		{
+			tmp = tmp->next;
+		}
+		return tmp;
+	}
+	*/
+
 	void PushBack(const TYPE& item)
 	{
-		DList_Node<TYPE>* new_node = new DList_Node<TYPE>;
-		new_node->data = item;
+		DList_Node<TYPE>* new_node = new DList_Node<TYPE>(item);
 
-		if (Count() == 0)
+		if (start == NULL)
 			end = start = new_node;
 		else
 		{
-			end->next = new_node;
+			DList_Node<TYPE>* tmp = GetLast();
+			tmp->next = new_node;
+			new_node->prev = tmp;
 			end = new_node;
 		}
 	}
+
+	/*void PushFront(const TYPE& item){};
+
+	const TYPE& PopBack(){};
+
+	const TYPE& PopFront(){};
+
+	void Insert(const TYPE& item){};
+
+	void Remove(uint pos){};*/
+
 	void Clear()
 	{
-		while (start != end)
+		while (end != NULL)
 		{
 			DList_Node<TYPE>* node_to_delete = end;
 			end = end->prev;
 			delete node_to_delete;
 		}
+		delete start;
+		start = end = NULL;
 	}
-	uint Count()
+
+	uint Count() const
 	{
 		uint ret = 0;
-		DList_Node<TYPE*>* tmp = new DList_Node<TYPE>;
-		tmp = start;
-		while (tmp!=end)
+		DList_Node<TYPE>* tmp = start;
+
+		while (tmp != NULL)
 		{
-			ret++;
 			tmp = tmp->next;
+			ret++;
 		}
 
 		return ret;
 	}
-	bool Empty(){ return(start=end=NULL) }
+
+	bool Empty(){ return(start == end == NULL); }
 };
 
 #endif //__DList_H__

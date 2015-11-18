@@ -20,8 +20,14 @@ int main()
 	cout << endl;
 	cout << endl;
 
-	DList<int> list();
+	DList<int> list;
+	list.PushBack(1);
+	list.PushBack(2);
+	list.PushBack(3);
+	list.PushBack(4);
 
+	cout << "Count: " << list.Count() << endl;
+	cout << "First: " << list.GetFirst()->data << endl;
 
 	cout << endl;
 	cout << endl;
