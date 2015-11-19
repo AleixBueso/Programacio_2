@@ -54,15 +54,32 @@ public:
 		}
 	}
 
-	/*void PushFront(const TYPE& item){};
+	void PushFront(const TYPE& item)
+	{
+		DList_Node<TYPE>* new_node = new DList_Node<TYPE>(item);
+		start->prev = new_node;
+		new_node->next = start;
+		start = new_node;
+	};
 
-	const TYPE& PopBack(){};
+	const TYPE& PopBack()
+	{
+		if (start == NULL)
+			return 0;
+		else
+		{
+			TYPE ret = end->data;
+			end = end->prev;
+			delete end->next;
+			return ret;
+		}
+	}
 
 	const TYPE& PopFront(){};
 
 	void Insert(const TYPE& item){};
 
-	void Remove(uint pos){};*/
+	void Remove(uint pos){};
 
 	void Clear()
 	{
@@ -72,7 +89,6 @@ public:
 			end = end->prev;
 			delete node_to_delete;
 		}
-		delete start;
 		start = end = NULL;
 	}
 

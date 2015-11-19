@@ -25,9 +25,11 @@ int main()
 	list.PushBack(2);
 	list.PushBack(3);
 	list.PushBack(4);
+	list.PushFront(5);
 
 	cout << "Count: " << list.Count() << endl;
 	cout << "First: " << list.GetFirst()->data << endl;
+	cout << "Pop Last: " << list.PopBack() << endl;
 
 	cout << endl;
 	cout << endl;
