@@ -28,14 +28,14 @@ public:
 
 	DList_Node<TYPE>* GetLast(){ return end; }
 
-/*const DList_Node<TYPE>* GetLast()
+	/*const DList_Node<TYPE>* GetLast()
 	{
-		DList_Node<TYPE>* tmp = start;
-		while (tmp->next != NULL)
-		{
-			tmp = tmp->next;
-		}
-		return tmp;
+	DList_Node<TYPE>* tmp = start;
+	while (tmp->next != NULL)
+	{
+	tmp = tmp->next;
+	}
+	return tmp;
 	}
 	*/
 
@@ -62,31 +62,49 @@ public:
 		start = new_node;
 	};
 
-	const TYPE& PopBack()
+	 bool PopBack(TYPE& ret)
 	{
 		if (start == NULL)
-			return 0;
+			return false;
 		else
 		{
-			TYPE ret = end->data;
-			end = end->prev;
-			delete end->next;
-			end->next = NULL;
-			return ret;
+			ret = end->data;
+			if (end->prev != NULL)
+			{
+				end = end->prev;
+				delete end->next;
+				end->next = NULL;
+			}
+			else
+			{
+				delete start;
+				start = end = NULL;
+			}
+				
+			return true;
 		}
 	}
 
-	const TYPE& PopFront()
+	bool PopFront(TYPE& ret)
 	{
 		if (start == NULL)
-			return 0;
+			return false;
 		else
 		{
-			TYPE ret = start->data;
-			start = start->next;
-			delete start->prev;
-			start->prev = NULL;
-			return ret;
+			ret = end->data;
+			if (start->next != NULL)
+			{
+				start = start->next;
+				delete start->prev;
+				start->prev = NULL;
+			}
+			else
+			{
+				delete end;
+				start = end = NULL;
+			}
+
+			return true;
 		}
 	}
 
@@ -116,10 +134,11 @@ public:
 	{
 		if (pos <= Count())
 		{
+			int a = 0;
 			if (pos == 0)
-				PopFront();
+				PopFront(a);
 			else if (pos == Count())
-				PopBack();
+				PopBack(a);
 			else
 			{
 				DList_Node<TYPE>* tmp = start;
@@ -130,7 +149,15 @@ public:
 				delete tmp;
 			}
 		}
-		
+
+	}
+
+	const TYPE& At(uint pos)
+	{
+		DList_Node<TYPE>* tmp = start;
+		for (uint i = 0; i <= pos; i++)
+			tmp = tmp->next;
+		return tmp->data;
 	}
 
 	void Clear()
