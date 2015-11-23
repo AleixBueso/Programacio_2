@@ -31,9 +31,14 @@ int main()
 
 	cout << "Count: " << list.Count() << endl;
 	cout << "First: " << list.GetFirst()->data << endl;
-	cout << "Pop Last: " << list.PopBack() << endl;
+	list.PopBack(c);
+	cout << "Pop Last: " << c << endl;
 	cout << "Count: " << list.Count() << endl;
-	cout << "Pop Front: " << list.PopFront() << endl;
+	list.PopFront(a);
+	cout << "Pop Front: " << a << endl;
+	cout << "Count: " << list.Count() << endl;
+	list.PopFront(b);
+	cout << "Pop Front: " << b << endl;
 	cout << "Count: " << list.Count() << endl;
 
 	cout << endl;
