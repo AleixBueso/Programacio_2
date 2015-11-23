@@ -71,15 +71,67 @@ public:
 			TYPE ret = end->data;
 			end = end->prev;
 			delete end->next;
+			end->next = NULL;
 			return ret;
 		}
 	}
 
-	const TYPE& PopFront(){};
+	const TYPE& PopFront()
+	{
+		if (start == NULL)
+			return 0;
+		else
+		{
+			TYPE ret = start->data;
+			start = start->next;
+			delete start->prev;
+			start->prev = NULL;
+			return ret;
+		}
+	}
 
-	void Insert(const TYPE& item){};
+	void Insert(const TYPE& item, uint pos)
+	{
+		if (pos <= Count())
+		{
+			if (pos == 0)
+				PushFront(item);
+			else if (pos == Count())
+				PushBack(item);
+			else
+			{
+				DList_Node<TYPE>* new_node = new DList_Node<TYPE>(item);
+				DList_Node<TYPE>* tmp = start;
+				for (uint i = 0; i < pos; i++)
+					tmp = tmp->next;
+				tmp->next->prev = new_node;
+				new_node->next = tmp->next;
+				new_node->prev = tmp;
+				tmp->next = new_node;
+			}
+		}
+	}
 
-	void Remove(uint pos){};
+	void Remove(uint pos)
+	{
+		if (pos <= Count())
+		{
+			if (pos == 0)
+				PopFront();
+			else if (pos == Count())
+				PopBack();
+			else
+			{
+				DList_Node<TYPE>* tmp = start;
+				for (uint i = 0; i < pos; i++)
+					tmp = tmp->next;
+				tmp->next->prev = tmp->prev;
+				tmp->prev->next = tmp->next;
+				delete tmp;
+			}
+		}
+		
+	}
 
 	void Clear()
 	{
